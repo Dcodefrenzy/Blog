@@ -1,0 +1,3 @@
+.vagrant/
+Vagrantfile
+blog/demo_models/model.php
