@@ -15,6 +15,25 @@ if(isset($_GET['id'])){
   $category_id = $_GET['id'];
 }
 
+$hid = NULL;
+if(isset($_GET['hid'])){
+  $hid = $_GET['hid'];
+}
+$data = NULL;
+if(isset($_GET['data'])){
+  $data = $_GET['data'];
+}
+
+$page = NULL;
+if(isset($_GET['page'])){
+  $page = $_GET['page'];
+}
+
+$i = NULL;
+if (isset($_GET['page'])) {
+  $page = $_GET['page'];
+}
+
 $msg = NULL;
 if(isset($_GET['msg'])){
   $msg = $_GET['msg'];
@@ -74,12 +93,7 @@ switch ($uri[1]) {
   case "addArticle":
   include APP_PATH."/demo_views/admin/add_blog.php";
   break;
-  case "addCampusArticle":
-  include APP_PATH."/demo_views/admin/add_campus_blog.php";
-  break;
-  case "addExploit":
-  include APP_PATH."/demo_views/admin/add_exploit.php";
-  break;
+
 
   case "addInsight":
   include APP_PATH."/demo_views/admin/add_insights.php";
@@ -89,20 +103,6 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/content.php";
   break;
 
-  case "addReport":
-  include APP_PATH."/demo_views/admin/add_report.php";
-  break;
-  case "addTraining":
-  include APP_PATH."/demo_views/admin/add_grants.php";
-  break;
-
-    case "deleteCampusNews?id=$id":
-  include APP_PATH."/demo_views/admin/delete_campus_news.php";
-  break;
-
-  case "addProgram":
-  include APP_PATH."/demo_views/admin/add_trainings.php";
-  break;
 
   case "addNews":
   include APP_PATH."/demo_views/admin/add_news.php";
@@ -123,12 +123,6 @@ switch ($uri[1]) {
   case "addArticle?success=$success":
   include APP_PATH."/demo_views/admin/add_blog.php";
   break;
-  case "addCampusArticle?success=$success":
-  include APP_PATH."/demo_views/admin/add_campus_blog.php";
-  break;
-  case "addExploit?success=$success":
-  include APP_PATH."/demo_views/admin/add_exploit.php";
-  break;
 
   case "addInsight?success=$success":
   include APP_PATH."/demo_views/admin/add_insights.php";
@@ -138,29 +132,9 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/add_news.php";
   break;
 
-  case "addTraining?success=$success":
-  include APP_PATH."/demo_views/admin/add_grants.php";
-  break;
 
-  case "addEvent?success=$success":
-  include APP_PATH."/demo_views/admin/add_event.php";
-  break;
 
-  case "addEvent":
-  include APP_PATH."/demo_views/admin/add_event.php";
-  break;
 
-  case "addProgram?success=$success":
-  include APP_PATH."/demo_views/admin/add_trainings.php";
-  break;
-
-  case "addReport?success=$success":
-  include APP_PATH."/demo_views/admin/add_report.php";
-  break;
-
-  case "addResources?success=$success":
-  include APP_PATH."/demo_views/admin/add_resources.php";
-  break;
 
   case "suspend?id=$id":
   include APP_PATH."/demo_views/admin/suspend.php";
@@ -187,13 +161,6 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/delete_client.php";
   break;
 
-  case "addFaq":
-  include APP_PATH."/demo_views/admin/add_faq.php";
-  break;
-
-  case "addFaq?success=$success":
-  include APP_PATH."/demo_views/admin/add_faq.php";
-  break;
 
   case "viewUsers":
   include APP_PATH."/demo_views/admin/view_users.php";
@@ -211,31 +178,11 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/view_news.php";
   break;
 
-  case "manageCampusNews":
-  include APP_PATH."/demo_views/admin/view_campus_news.php";
-  break;
-
-  case "manageCampusNews?success=$success":
-  include APP_PATH."/demo_views/admin/view_campus_news.php";
-  break;
-
-  case "manageEvent":
-  include APP_PATH."/demo_views/admin/view_event.php";
-  break;
-
-  case "manageEvent?success=$success":
-  include APP_PATH."/demo_views/admin/view_event.php";
-  break;
 
   case "manageArticles":
   include APP_PATH."/demo_views/admin/view_articles.php";
   break;
-  case "manageCampusArticles":
-  include APP_PATH."/demo_views/admin/view_campus_articles.php";
-  break;
-  case "manageExploits":
-  include APP_PATH."/demo_views/admin/view_exploits.php";
-  break;
+
 
   case "manageInsights":
   include APP_PATH."/demo_views/admin/view_insights.php";
@@ -264,12 +211,6 @@ switch ($uri[1]) {
   case "editArticle?id=$id":
   include APP_PATH."/demo_views/admin/edit_article.php";
   break;
-  case "editCampusArticle?id=$id":
-  include APP_PATH."/demo_views/admin/edit_campus_article.php";
-  break;
-  case "editExploit?id=$id":
-  include APP_PATH."/demo_views/admin/edit_exploit.php";
-  break;
 
   case "editAbout?id=$id":
   include APP_PATH."/demo_views/admin/edit_about.php";
@@ -279,16 +220,11 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/edit_insight.php";
   break;
 
-  case "editEvent?id=$id":
-  include APP_PATH."/demo_views/admin/edit_event.php";
-  break;
 
   case "editNews?id=$id":
   include APP_PATH."/demo_views/admin/edit_news.php";
   break;
-  case "editCampusNews?id=$id":
-  include APP_PATH."/demo_views/admin/edit_campus_news.php";
-  break;
+
   case "manageNews?success=$success":
   include APP_PATH."/demo_views/admin/view_news.php";
   break;
@@ -312,13 +248,8 @@ switch ($uri[1]) {
   case "newsCategory?success=$success":
   include APP_PATH."/demo_views/admin/add_news_category.php";
   break;
-  case "campus":
-  include APP_PATH."/demo_views/admin/add_campus.php";
-  break;
 
-  case "campus?success=$success":
-  include APP_PATH."/demo_views/admin/add_campus.php";
-  break;
+
 
   case "addProfile":
   include APP_PATH."/demo_views/admin/add_profile.php";
@@ -335,13 +266,7 @@ switch ($uri[1]) {
   include APP_PATH."/demo_views/admin/add_about.php";
   break;
 
-  case "addProject":
-  include APP_PATH."/demo_views/admin/add_project.php";
-  break;
 
-  case "addProject?success=$success":
-  include APP_PATH."/demo_views/admin/add_project.php";
-  break;
 
   case "adminRegistration":
   include APP_PATH."/demo_views/admin/add_admin.php";
@@ -394,15 +319,7 @@ switch ($uri[1]) {
   case "deleteArticle?id=$id":
   include APP_PATH."/demo_views/admin/delete_article.php";
   break;
-  case "deleteCampusArticle?id=$id":
-  include APP_PATH."/demo_views/admin/delete_campus_article.php";
-  break;
-  case "deleteExploit?id=$id":
-  include APP_PATH."/demo_views/admin/delete_exploit.php";
-  break;
-  case "deleteEvent?id=$id":
-  include APP_PATH."/demo_views/admin/delete_event.php";
-  break;
+
   case "deleteInsight?id=$id":
   include APP_PATH."/demo_views/admin/delete_insight.php";
   break;
@@ -418,56 +335,24 @@ switch ($uri[1]) {
   case "manageArticles?success=$success":
   include APP_PATH."/demo_views/admin/view_articles.php";
   break;
-  case "manageCampusArticles?success=$success":
-  include APP_PATH."/demo_views/admin/view_campus_articles.php";
-  break;
-  case "manageExploits?success=$success":
-  include APP_PATH."/demo_views/admin/view_exploits.php";
-  break;
+
 
   case "manageAbout":
   include APP_PATH."/demo_views/admin/manage_about.php";
   break;
+
   case "clients":
   include APP_PATH."/demo_views/admin/users.php";
+  break;
+
   case "clients?success=$success":
   include APP_PATH."/demo_views/admin/users.php";
   break;
+
   case "manageAbout?success=$success":
   include APP_PATH."/demo_views/admin/manage_about.php";
   break;
 
-  case "manageReports?success=$success":
-  include APP_PATH."/demo_views/admin/manage_reports.php";
-  break;
-
-  case "manageReports":
-  include APP_PATH."/demo_views/admin/manage_reports.php";
-  break;
-
-  case "manageResources?success=$success":
-  include APP_PATH."/demo_views/admin/manage_resources.php";
-  break;
-
-  case "manageResources":
-  include APP_PATH."/demo_views/admin/manage_resources.php";
-  break;
-
-  case "managePrograms?success=$success":
-  include APP_PATH."/demo_views/admin/manage_trainings.php";
-  break;
-
-  case "managePrograms":
-  include APP_PATH."/demo_views/admin/manage_trainings.php";
-  break;
-
-  case "manageTrainings?success=$success":
-  include APP_PATH."/demo_views/admin/manage_grants.php";
-  break;
-
-  case "manageTrainings":
-  include APP_PATH."/demo_views/admin/manage_grants.php";
-  break;
 
   case "editContent?id=$id&t=$t":
   include APP_PATH."/demo_views/admin/editResources.php";
@@ -482,6 +367,45 @@ switch ($uri[1]) {
   break;
 
   ///////Public Routes////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  case "index":
+  include APP_PATH."/demo_publicviews/index.php";
+  break;
+
+  case "viewBlog?hid=$hid&data=$data":
+  include APP_PATH."/demo_publicviews/view_blog.php";
+  break;
+
+
+  case "blog?hid=$hid&data=$data":
+  include APP_PATH."/demo_publicviews/blog.php";
+  break;
+
+  case "blog?data=$data":
+  include APP_PATH."/demo_publicviews/blog.php";
+  break;
+
+   case "blog?data=$data&page=$page":
+  include APP_PATH."/demo_publicviews/blog.php";
+  break;
+
+  case "blog?hid=$hid&data=$data&page=$page":
+  include APP_PATH."/demo_publicviews/blog.php";
+  break;
+
+  case "events?data=$data":
+  include APP_PATH."/demo_publicviews/events.php";
+  break;
+
+  case "blog":
+  include APP_PATH."/demo_publicviews/blog.php";
+  break;
+
+  case "contact":
+  include APP_PATH."/demo_publicviews/contact.php";
+  break;
 }
 
 

@@ -3252,4 +3252,204 @@ function logs($dbconn, $type, $content,$category,$who){
   $stmt->bindParam(":hid",$hash_id);
   $stmt->execute();
 }
+
+//Public controller
+
+//to get id and news category names
+function news_sub($dbconn){
+  $result = [];
+  $stmt = $dbconn->prepare("SELECT * FROM news_category");
+  $stmt->execute();
+
+    while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+      $result [] =$row;
+    }
+    return $result;
+}
+
+//to get insights category name and id
+function insights($dbconn){
+  $result = [];
+  $stmt = $dbconn->prepare("SELECT * FROM package_name");
+  $stmt->execute();
+
+    while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+      $result [] = $row;
+    }
+    return $result;
+}
+
+
+function data($dbconn, $table, $start, $record){
+try {
+    $result = [];
+      $show = "show";
+$stmt = $dbconn->prepare("SELECT * FROM  $table WHERE visibility = :show ORDER BY id DESC LIMIT $start, $record");
+$stmt->bindParam(':show', $show);
+$stmt->execute();
+} catch (Exception $e) {
+  die("Something Went wrong");
+  header("index"); 
+}
+while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+  $result [] = $row;
+
+  }
+  return $result;
+}
+
+
+function information($dbconn, $table, $id, $start, $record){
+ try {
+    $result= [];
+     $show = "show";
+$stmt = $dbconn->prepare("SELECT * FROM  $table WHERE category = :cat AND visibility = :show  ORDER BY id DESC LIMIT $start, $record");
+$stmt->bindParam(':cat', $id);
+$stmt->bindParam(':show', $show);
+$stmt->execute();
+   
+ } catch (Exception $e) {
+  die("Something Went wrong");
+  header("index"); 
+ }
+
+while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+  $result [] = $row;
+  }
+return $result;
+}
+
+
+function information2($dbconn, $table, $id){
+   
+  try {
+    $result= [];
+     $show = "show";
+  $stmt = $dbconn->prepare("SELECT * FROM  $table WHERE category = :cat AND visibility = :show  ORDER BY id DESC LIMIT 5 ");
+$stmt->bindParam(':cat', $id);
+$stmt->bindParam(':show', $show);
+$stmt->execute();
+    
+  } catch (Exception $e) {
+  die("Something Went wrong");
+  header("index"); 
+  }
+ 
+while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+  $result [] = $row;
+  }
+return $result;
+}
+
+
+function data2($dbconn, $table){
+try {
+    $result = [];
+     $show = "show";
+$stmt = $dbconn->prepare("SELECT * FROM  $table WHERE visibility = :show  ORDER BY id DESC LIMIT 5");
+$stmt->bindParam(':show', $show);
+$stmt->execute();
+} catch (Exception $e) {
+    die("Something Went wrong");
+  header("index");
+}
+
+while ($row = $stmt->fetch(PDO::FETCH_BOTH)) {
+  $result [] = $row;
+
+  }
+  return $result;
+}
+
+
+function getInfo($dbconn, $id, $table){
+   
+try {
+  $stmt = $dbconn->prepare("SELECT * FROM  $table WHERE hash_id  = :cat ");
+$stmt->bindParam(':cat', $id);
+$stmt->execute();
+} catch (Exception $e) {
+   die("Something Went wrong");
+  header("index");
+}
+$row = $stmt->fetch(PDO::FETCH_BOTH);
+return $row;
+  
+}
+
+
+function getPaginationForData($dbconn, $table, $record){
+  try {
+    $result = [];
+    $show = "show";
+    $stmt= $dbconn->prepare("SELECT * FROM $table WHERE visibility = :show");
+    $stmt->bindParam(':show', $show);
+    $stmt->execute();
+  } catch (Exception $e) {
+    die("Something Went wrong");
+  }
+
+  $total_record = $stmt->rowCount();
+  $total_pages = ceil($total_record/$record);
+  for ($i=1; $i <=$total_pages;  $i++) { 
+    $result [] = $i;
+  }
+  return $result;
+}
+
+function getTotalRecordForData($dbconn, $table,  $record){
+  try {
+     $show = "show";
+     $stmt= $dbconn->prepare("SELECT * FROM $table WHERE visibility = :show ORDER BY id DESC");
+         $stmt->bindParam(':show', $show);
+  $stmt->execute();
+    
+  } catch (Exception $e) {
+    die("Something Went wrong");
+  }
+ 
+  $total_record=$stmt->rowCount();
+  $total_pages = ceil($total_record/$record);
+  return $total_pages;
+
+}
+
+function getPaginationForInformation($dbconn, $table, $id, $record){
+  try {
+    $result= [];
+     $show = "show";
+$stmt = $dbconn->prepare("SELECT * FROM  $table WHERE category = :cat AND visibility = :show ORDER BY id DESC");
+$stmt->bindParam(':cat', $id);
+$stmt->bindParam(':show', $show);
+$stmt->execute();
+  } catch (Exception $e) {
+    die("Something Went wrong");
+  }
+
+  $total_record = $stmt->rowCount();
+  $total_pages = ceil($total_record/$record);
+  for ($i=1; $i <=$total_pages;  $i++) { 
+    $result [] = $i;
+  }
+  return $result;
+}
+
+function getTotalRecordForInformation($dbconn, $table, $id, $record){
+    try {
+       $show = "show";
+  $stmt= $dbconn->prepare("SELECT * FROM $table WHERE Category = :cat AND visibility = :show ORDER BY id DESC");
+  $stmt->bindParam(':show', $show);
+  $stmt->bindParam(':cat', $id);
+  $stmt->execute();
+    
+  } catch (Exception $e) {
+    die("Something Went wrong");
+  }
+ 
+  $total_record=$stmt->rowCount();
+  $total_pages = ceil($total_record/$record);
+  return $total_pages;
+}
+
+
 ?>
