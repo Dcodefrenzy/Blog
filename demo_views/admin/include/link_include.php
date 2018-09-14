@@ -98,41 +98,55 @@ if($read['defaulted'] >= 3){
           <!-- <li><a href="addProfile">Add Profile</a></li> -->
           <!-- <li><a href="manageReports">Manage Reports</a></li> -->
           <!-- <li><a href="manageGrants">Manage Programs</a></li> -->
-          <li><a href="contents">Contents</a></li>
-          <li><a href="managePrograms">Manage Program</a></li>
-          <li><a href="manageCampusNews">Manage Campus News</a></li>
-          <li><a href="manageCampusArticles">Manage Campus Articles</a></li>
+         <!--  <li><a href="contents">Contents</a></li> -->
+          <!-- <li><a href="managePrograms">Manage Program</a></li> -->
+         <!--  <li><a href="manageCampusNews">Manage Campus News</a></li> -->
+        <!--   <li><a href="manageCampusArticles">Manage Campus Articles</a></li> -->
           <li><a href="manageNews">Manage News</a></li>
           <li><a href="manageInsights">Manage Article</a></li>
-          <li><a href="manageEvent">Manage Events</a></li>
+           <li><a href="addProfile">Update Profile</a></li>
+ 
 
           <li> <a href="logout">Logout</a></li>
         <?php }elseif($level == 4){ ?>
+        <li><a href="admin">Home</a></li>
+         <li><a href="addProfile">Update Profile</a></li>
+         <li><a href="contents">Contents</a></li>
+         <li><a href="addNews">Add News</a></li>
+          <li><a href="manageNews">Manage News</a></li>
 
-          <li><a href="addCampusNews">Add Campus News</a></li>
+<!--         <li><a href="addCampusNews">Add Campus News</a></li>
           <li><a href="addCampusArticle">Add Campus Article</a></li>
           <li><a href="manageCampusNews">Manage Campus News</a></li>
-          <li><a href="manageCampusArticles">Manage Campus Articles</a></li>
+          <li><a href="manageCampusArticles">Manage Campus Articles</a></li> -->
            <li> <a href="logout">Logout</a></li>
 <?php  }elseif($level == 5){ ?>
+          <li><a href="admin">Home</a></li>
+           <li><a href="addProfile">Update Profile</a></li>
           <li><a href="addInsight">Add Insight</a></li>
-  <li><a href="manageInsights">Manage Article</a></li>
+  <li><a href="manageInsights">Manage Insights</a></li>
        <li><a href="addArticle">Add Article</a></li>
-          <li><a href="manageInsights">Manage Insights</a></li>
+           <li><a href="manageArticles">Manage Articles</a></li>
            <li> <a href="logout">Logout</a></li>
 <?php }elseif($level == 6){ ?>
- <li><a href="admin">Home</a></li>
-          <li><a href="addNews">Add News</a></li>
+         <li><a href="admin">Home</a></li>
+          <li><a href="addProfile">Update Profile</a></li>
+          <li><a href="addArticle">Add Article</a></li>
+           <li><a href="manageArticles">Manage Articles</a></li>
+<!--           <li><a href="addNews">Add News</a></li>
           <li><a href="addCampusNews">Add Campus News</a></li>
           <li><a href="addEvent">Add Event</a></li>
           <li><a href="manageNews">Manage News</a></li>
           <li><a href="manageCampusNews">Manage Campus News</a></li>
-          <li><a href="manageEvent">Manage Events</a></li>
+          <li><a href="manageEvent">Manage Events</a></li> -->
            <li> <a href="logout">Logout</a></li>
 <?php }elseif($level == 7){ ?>
- <li><a href="admin">Home</a></li>
-            <li><a href="addTraining">Add Training</a></li>
-          <li><a href="manageTrainings">Manage Trainings</a></li>
+           <li><a href="admin">Home</a></li>
+            <li><a href="addProfile">Update Profile</a></li>
+           <li><a href="addInsight">Add Insight</a></li>
+            <li><a href="manageInsights">Manage Insights</a></li>
+           <!--  <li><a href="addTraining">Add Training</a></li>
+          <li><a href="manageTrainings">Manage Trainings</a></li> -->
            <li> <a href="logout">Logout</a></li>
 <?php }elseif($level == 8){ ?>
  <li><a href="admin">Home</a></li>
@@ -144,33 +158,23 @@ if($read['defaulted'] >= 3){
           <li><a href="contents">Contents</a></li>
           <li><a href="addArticle">Add Article</a></li>
           <li><a href="addNews">Add News</a></li>
-          <li><a href="addCampusNews">Add Campus News</a></li>
           <li><a href="addInsight">Add Insight</a></li>
-          <li><a href="addTraining">Add Training</a></li>
-          <li><a href="addProgram">Add Program</a></li>
-          <li><a href="addEvent">Add Event</a></li>
-          <li><a href="addExploit">Add Exploit</a></li>
-          <li><a href="addCampusArticle">Add Campus Article</a></li>
-          <li><a href="managePrograms">Manage Programs</a></li>
-          <li><a href="manageTrainings">Manage Trainings</a></li>
           <li><a href="manageNews">Manage News</a></li>
-          <li><a href="manageCampusNews">Manage Campus News</a></li>
           <li><a href="manageArticles">Manage Articles</a></li>
-          <li><a href="manageCampusArticles">Manage Campus Articles</a></li>
           <li><a href="manageInsights">Manage Insights</a></li>
-          <li><a href="manageEvent">Manage Events</a></li>
-          <li><a href="manageExploits">Manage Exploits</a></li>
+           
           <?php $check2 = adminFullInfo($conn,$_SESSION['id']);
           if($check2['portfolio'] == 555666777888999000){
             ?>
             <li><a href="manageViews">Manage Views</a></li>
             <li><a href="insightCategory">Add More Insights Category</a></li>
             <li><a href="newsCategory">Add More News Category</a></li>
-            <li><a href="campus">Add More Campus</a></li>
+           <!--  <li><a href="campus">Add More Campus</a></li> -->
             <li><a href="addAbout">Add About Us</a></li>
             <li><a href="manageAbout">About Us</a></li>
             <li><a href="viewUsers">Manage Users</a></li>
             <li><a href="clients">Clients Users</a></li>
+            <li><a href="addProfile">Update Profile</a></li>
             <li><a href="log">Log</a></li>
           <?php } ?>
           <li> <a href="logout">Logout</a></li>
