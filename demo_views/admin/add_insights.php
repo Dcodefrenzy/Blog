@@ -46,11 +46,10 @@ if(array_key_exists('submit', $_POST)){
   if(empty($_POST['body'])){
     $error['body']="Enter a body";
   }
-  if(empty($_POST['visibility'])){
-    $error['visibility']="Enter a Visibility";
-  }
+
 
   if(empty($error)){
+    $_POST['visibility'] = "hide";
     $ver['a'] = compressImage($_FILES,'upload',90, 'uploads/' );
 
     $clean = array_map('trim', $_POST);
@@ -59,11 +58,11 @@ if(array_key_exists('submit', $_POST)){
     $uri = explode("/", $_SERVER['REQUEST_URI']);
     $url = $uri[1];
      $to = "boardspeck@gmail.com";
-     $subject = "Boardspeck Web Office Content Upload";
-     $txt = "Hello Admin, ($firstn $lastn)has added a content on "."$url"." page at the back office. Kindly check for and approval";
+     $subject = "Arthut Content Upload";
+     $txt = "Hello Admin, ($firstn $lastn)has added a content on "."$url"." page at Arthut. Kindly check for and approval";
      $headers = "From: info@boardspeck.com" . "\r\n" .
      "CC: banjimayowa@gmail.com";
-     mail($to,$subject,$txt,$headers);
+    //  mail($to,$subject,$txt,$headers);
     addInsight($conn, $clean,$ver,$hash_id);
   }
 }
@@ -78,26 +77,26 @@ if(array_key_exists('submit', $_POST)){
   <div class="inner-box posting">
   <div class="alert alert-success alert-lg" role="alert">
   <h2 class="postin-title">✔ Successful! '.$msg.' </h2>
-  <p>Thank you '.ucwords($firstname).', BoardSpeck  is happy to have you around. </p>
+  <p>Thank you '.ucwords($firstname).', Arthut  is happy to have you around. </p>
   </div>
   </div>
   </div>';
   } ?>
 <div class="col-sm-12 col-md-10 col-md-offset-1">
 <div class="page-ads box">
-<h2 class="title-2">Welcome to the Insight page</h2>
+<h2 class="title-2">Welcome to the Feature page</h2>
 <div class="row search-bar mb30 red-bg">
 <div class="advanced-search">
 <form class="search-form" method="get">
 <div class="col-md-4 col-sm-12 search-col">
-<h3>Please post your insight.</h3>
+<h3>Please post your Feature.</h3>
 </div>
 </form>
 </div>
 </div>
 <form class="form-ad" action="" method="post" enctype="multipart/form-data">
 <div class="form-group mb30">
-<label class="control-label">INSIGHT TITLE</label><?php $display = displayErrors($error, 'title');
+<label class="control-label">CONTENT TITLE</label><?php $display = displayErrors($error, 'title');
 echo $display ?> <input class="form-control input-md" name="title" placeholder="Write a suitable title for your insight"  type="text">
 </div>
 <div class="form-group mb30">
@@ -117,19 +116,6 @@ echo $display ?>
   <br/>
   <div class="col-md-4 col-sm-4 col-xs-12 search-bar search-bar-nostyle">
 <div class="input-group-addon search-category-container">
-
-<label class="control-labell">VISIBILITY </label>  <?php $display = displayErrors($error, 'visibility');
-  echo $display ?><br><select class="dropdown-product selectpicker" name="visibility" >
-<option value="hide">
---Admin Decision--
-</option>
-
-
-</select>
-<br>
-<br>
-<br>
-
 
 <label class="control-labell">CATEGORY </label>  <?php $display = displayErrors($error, 'category');
   echo $display ?><br><select required class="selectpicker" name="category">

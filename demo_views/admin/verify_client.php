@@ -20,7 +20,7 @@ $lastname = $userinfo['lastname'];
 
 
 $to = $email;
-$subject = "Boardspeck Web Office Sharer Verification";
+$subject = "Arthut Web Office Sharer Verification";
 $txt = "Hello $firstname $lastname, You have been Verified from the Boardspeck Web Office to earn from sharing Posts. Login at https://boardspeck.com/userLogin";
 $headers = "From: info@boardspeck.com" . "\r\n" .
 "CC: boardspeck@gmail.com";

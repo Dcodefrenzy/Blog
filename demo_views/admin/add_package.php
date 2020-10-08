@@ -64,26 +64,26 @@ if(array_key_exists('commit', $_POST)){
   <div class="inner-box posting">
   <div class="alert alert-success alert-lg" role="alert">
   <h2 class="postin-title">✔ Successful! '.$msg.' </h2>
-  <p>Thank you '.ucwords($firstname).', BoardSpeck  is happy to have you around. </p>
+  <p>Thank you '.ucwords($firstname).', Arthut  is happy to have you around. </p>
   </div>
   </div>
   </div>';
   } ?>
 <div class="col-sm-12 col-md-10 col-md-offset-1">
 <div class="page-ads box">
-<h2 class="title-2">Welcome to the Add Insights page</h2>
+<h2 class="title-2">Welcome to the Add Feature Category page</h2>
 <div class="row search-bar mb30 ">
 <div class="advanced-search">
 
 <div class="col-md-4 col-sm-12 search-col">
-<h3>Insights Categories.</h3>
+<h3>Categories.</h3>
 </div>
 </div>
 </div>
 <form class="form-ad" method="post" action="">
 <div class="form-group mb30">
-<label class="control-label">Insight Name</label> <?php $display = displayErrors($error, 'package_name');
-echo $display ?><input class="form-control input-md" name="package_name" placeholder=" Write Your Insight Name" type="text">
+<label class="control-label">Category Name</label> <?php $display = displayErrors($error, 'package_name');
+echo $display ?><input class="form-control input-md" name="package_name" placeholder=" Write Your Category Name" type="text">
 <input class="btn btn-common" type="submit" name="submit" value="ADD">
 </form>
 </div>
@@ -98,45 +98,7 @@ echo $display ?><input class="form-control input-md" name="package_name" placeho
 
 
 
-<hr>
-<div class="row search-bar mb30 ">
-<div class="advanced-search">
 
-<div class="col-md-4 col-sm-12 search-col">
-<h3>Insights Sub Categories.</h3>
-</div>
-</div>
-</div>
-<form class="form-ad" method="post" action="">
-<div class="form-group mb30">
-<label class="control-label">INSIGHT CATEGORY</label><br>
-
-<div class="col-md-4 col-sm-4 col-xs-12 search-bar search-bar-nostyle">
-
-<div class="input-group-addon search-category-container">
-
-<label class="control-label"> <select class="dropdown-product selectpicker" required name="package_n">
-<option value="">
---SELECT--
-</option>
-<?php getPackageName($conn); ?>
-</select>
-<br/>
-<br/>
-</div>
-</div>
-<br>
-<br>
-<br>
-<div class="form-group mb30">
-<label class="control-label">INSIGHT SUB CATEGORY</label> <?php $display = displayErrors($error, 'package_l');
-echo $display ?><input class="form-control input-md" name="package_l" placeholder=" Write Your Selected Insight Sub Category" type="text">
-</div>
-
-
-<input class="btn btn-common" type="submit" name="commit" value="ADD">
-
-</form>
 </div>
 <br>
 <br>

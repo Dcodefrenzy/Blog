@@ -26,7 +26,7 @@ $lname = ucwords($lastname);
   <div class="inner-box posting">
   <div class="alert alert-success alert-lg" role="alert">
   <h2 class="postin-title">✔ Successful! '.$msg.' </h2>
-  <p>Thank you '.ucwords($firstname).', BoardSpeck is happy to have you around. </p>
+  <p>Thank you '.ucwords($firstname).', Arthut is happy to have you around. </p>
   </div>
   </div>
   </div>';
@@ -40,7 +40,7 @@ $lname = ucwords($lastname);
 <div class="widget-title">
 <h4>Advertisement</h4>
 </div>
-<img src="assets/img/img1.jpg" alt="">
+<img src="/assets/img/img1.jpg" alt="">
 </div>
 </aside>
 </div> -->
@@ -49,7 +49,8 @@ $lname = ucwords($lastname);
 <h2 class="title-2"><i class="fa fa-star-o"></i> Manage Articles</h2>
 <br>
 <div class="table-responsive">
-<table class="table table-striped table-bordered add-manage-table">
+<table  id="simpletable" class="table table-striped table-bordered add-manage-table">
+<thead>
   <tr>
     <th>Article Info</th>
     <th>Body</th>
@@ -61,9 +62,10 @@ $lname = ucwords($lastname);
     <th>Delete</th>
     <th>Set Visibility</th>
   </tr>
+</thead>
 <tbody>
 
-<?php 
+<?php
 if($level == "MASTER" || $level == 2 || $level == 3){
 getInsightView($conn, $_SESSION['id']);
 }else{
@@ -81,7 +83,7 @@ BoardSpeck.com </p>
 </td>
 <td class="add-img-td">
 <a href="">
-<img class="img-responsive" src="assets/img/item/img-1.jpg" alt="img">
+<img class="img-responsive" src="/assets/img/item/img-1.jpg" alt="img">
 </a>
 </td>
 <td class="add-img-td">
@@ -112,7 +114,7 @@ her
 <tr>
 <td class="add-img-td">
 <a href="ads-details.html">
-<img class="img-responsive" src="assets/img/item/img-2.jpg" alt="img">
+<img class="img-responsive" src="/assets/img/item/img-2.jpg" alt="img">
 </a>
 </td>
 <td class="ads-details-td">
@@ -130,7 +132,7 @@ her
 <!-- <tr>
 <td class="add-img-td">
 <a href="ads-details.html">
-<img class="img-responsive" src="assets/img/item/img-3.jpg" alt="img">
+<img class="img-responsive" src="/assets/img/item/img-3.jpg" alt="img">
 </a>
 </td>
 <td class="ads-details-td">
@@ -148,7 +150,7 @@ her
 <tr>
 <td class="add-img-td">
 <a href="ads-details.html">
-<img class="img-responsive" src="assets/img/item/img-4.jpg" alt="img">
+<img class="img-responsive" src="/assets/img/item/img-4.jpg" alt="img">
 </a>
 </td>
 <td class="ads-details-td">
@@ -166,7 +168,7 @@ her
 <tr>
 <td class="add-img-td">
 <a href="ads-details.html">
-<img class="img-responsive" src="assets/img/item/img-5.jpg" alt="img">
+<img class="img-responsive" src="/assets/img/item/img-5.jpg" alt="img">
 </a>
 </td>
 <td class="ads-details-td">
@@ -182,6 +184,17 @@ her
 </tr> -->
 
 </tbody>
+<tr>
+  <th>Article Info</th>
+  <th>Body</th>
+  <th>Image(Click to change)</th>
+  <th>Created By</th>
+  <th>Date Uploaded</th>
+  <th>Visibility</th>
+  <th>Edit</th>
+  <th>Delete</th>
+  <th>Set Visibility</th>
+</tr>
 </table>
 </div>
 
@@ -192,22 +205,24 @@ her
 
 
 
-<script type="text/javascript" src="assets/js/jquery-min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/material.min.js"></script>
-<script type="text/javascript" src="assets/js/material-kit.js"></script>
-<script type="text/javascript" src="assets/js/jquery.parallax.js"></script>
-<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="assets/js/wow.js"></script>
-<script type="text/javascript" src="assets/js/main.js"></script>
-<script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>
-<script type="text/javascript" src="assets/js/waypoints.min.js"></script>
-<script type="text/javascript" src="assets/js/jasny-bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/form-validator.min.js"></script>
-<script type="text/javascript" src="assets/js/contact-form-script.js"></script>
-<script type="text/javascript" src="assets/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.themepunch.tools.min.js"></script>
-<script src="assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery-min.js"></script>
+<script src="/admc/js/datatables.min.js"></script>
+<script src="/admc/js/data-basic-custom.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/js/material.min.js"></script>
+<script type="text/javascript" src="/assets/js/material-kit.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.parallax.js"></script>
+<script type="text/javascript" src="/assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/assets/js/wow.js"></script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="/assets/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/js/form-validator.min.js"></script>
+<script type="text/javascript" src="/assets/js/contact-form-script.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.themepunch.tools.min.js"></script>
+<script src="/assets/js/bootstrap-select.min.js"></script>
 </body>
 
 <!-- Mirrored from demo.graygrids.com/themes/classix-template/account-saved-search.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 16 Nov 2017 11:42:23 GMT -->

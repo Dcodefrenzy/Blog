@@ -20,7 +20,7 @@ $lastname = $userinfo['lastname'];
 
 
 $to = $email;
-$subject = "Boardspeck Web Office Verification";
+$subject = "Arthut Web Office Verification";
 $txt = "Hello $firstname $lastname, You have been Verified from the Boardspeck Web Office. Login at https://boardspeck.com/adminLogin";
 $headers = "From: info@boardspeck.com" . "\r\n" .
 "CC: boardspeck@gmail.com";

@@ -49,7 +49,7 @@ $firstname = $clean['firstname'];
 $lastname = $clean['lastname'];
 
  $to = "boardspeck@gmail.com";
- $subject = "Boardspeck Web Office Admin Registration";
+ $subject = "Arthut";
  $txt = "Hello Admin, A new Admin($firstname $lastname)  has registered to the web office. Kindly check for Verification";
  $headers = "From: info@boardspeck.com" . "\r\n" .
  "CC: banjimayowa@gmail.com";

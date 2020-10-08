@@ -19,10 +19,10 @@ include("include/link_include.php");
     <div class="item active" style="background-image: url(assets/img/slider/slide1.jpg);">
     <div class="carousel-caption">
     <h2>
-    Welcome to BoardSpeck
+    Welcome to ArtHut Admin
     </h2>
     <h3>
-    THIS IS THE BOARDSPECK WEB OFFICE.
+    Powered by MCKODEV.
     </h3
     </div>
     </div>
